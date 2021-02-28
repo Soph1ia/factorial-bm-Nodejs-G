@@ -10,7 +10,7 @@ exports.helloWorld = (req, res) => {
   res.status(200).send("Factorial Run Successfully");
 };
 
-function factorial(num) {
+function factorial(number) {
   // checking if number is negative
   if (number < 0) {
     console.log("Error! Factorial for negative number does not exist.");
@@ -28,6 +28,7 @@ function factorial(num) {
       fact *= i;
     }
   }
+  console.log(`factorial of ${number} is ${fact} `)
 }
 
 function benchmarking(num){
