@@ -6,7 +6,7 @@
  */
 exports.helloWorld = (req, res) => {
   let message = req.query.message || req.body.message || "0";
-  benchmarking(message);
+  benchmarking(parseInt(message));
   res.status(200).send("Factorial Run Successfully");
 };
 
