@@ -27,8 +27,8 @@ function factorial(number) {
     for (i = 1; i <= number; i++) {
       fact *= i;
     }
+    console.log(`factorial of ${number} is ${fact} `)
   }
-  console.log(`factorial of ${number} is ${fact} `)
 }
 
 function benchmarking(num){
