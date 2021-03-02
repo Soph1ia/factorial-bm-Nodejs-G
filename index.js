@@ -4,33 +4,34 @@
  * @param {!express:Request} req HTTP request context.
  * @param {!express:Response} res HTTP response context.
  */
+
+ const myFunction = require('./factorial');
+ const Benchmark = require('benchmark');
+ const suite = new Benchmark.Suite;
+
+
+
 exports.helloWorld = (req, res) => {
   let message = req.query.message || req.body.message || "0";
-  benchmarking(parseInt(message));
-  res.status(200).send("Factorial Run Successfully");
+  output = benchmarking(message);
+  res.status(200).send(output);
 };
 
-function factorial(number) {
-  // checking if number is negative
-  if (number < 0) {
-    console.log("Error! Factorial for negative number does not exist.");
-  }
+function benchmarking(message) {
+  number = parseInt(message);
+  
+  suite.add(`factorial ${number}`, function() {
+    myFunction.factorial(number)
+  })
+  .on('cycle', function(event){
+    console.log(String(event.target))
+})
+.on('complete', function() {
+    console.log('Fastest is' + this.filter('fastest').map('name'))
+})
+.run({ 'async': false}); 
 
-  // if number is 0
-  else if (number === 0) {
-    console.log(`The factorial of ${number} is 1.`);
-  }
-
-  // if number is positive
-  else {
-    let fact = 1;
-    for (i = 1; i <= number; i++) {
-      fact *= i;
-    }
-    console.log(`factorial of ${number} is ${fact} `)
-  }
+return `Factorial Finished Successfully for ${number} !`
 }
 
-function benchmarking(num){
-    factorial(num);
-}
+

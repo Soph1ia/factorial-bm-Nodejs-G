@@ -2,6 +2,10 @@
   "name": "sample-http",
   "version": "0.0.1",
   "devDependencies": {
-    "benny": "^3.6.15"
+    "benny": "^3.6.15",
+    "nodemark": "^0.3.0"
+  },
+  "dependencies": {
+    "api-benchmark": "^1.0.1"
   }
 }
