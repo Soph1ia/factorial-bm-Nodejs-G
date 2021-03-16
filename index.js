@@ -39,5 +39,3 @@ function benchmarking(message,printAllResults) {
     
   return `Factorial Finished Successfully for ${number} !`;
 }
-benchmarking(2);
-benchmarking(4);
