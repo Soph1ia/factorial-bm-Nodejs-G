@@ -1,0 +1,21 @@
+{
+  "name": "Example",
+  "date": "2021-03-02T20:14:27.650Z",
+  "version": "1.0.0",
+  "results": [
+    {
+      "name": "Calculate factorial",
+      "ops": 164281,
+      "margin": 0.25,
+      "percentSlower": 0
+    }
+  ],
+  "fastest": {
+    "name": "Calculate factorial",
+    "index": 0
+  },
+  "slowest": {
+    "name": "Calculate factorial",
+    "index": 0
+  }
+}

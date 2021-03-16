@@ -13,7 +13,7 @@ function factorial(number){
       // if number is positive
       else {
         let fact = 1;
-        for (i = 1; i <= number; i++) {
+        for (var i = 1; i <= number; i++) {
           fact *= i;
         }
         // console.log(`factorial of ${number} is ${fact} `);
