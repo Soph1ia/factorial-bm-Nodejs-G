@@ -13,11 +13,12 @@ Benchmark.options.minSamples = 40;
 
 exports.helloWorld = (req, res) => {
   let message = req.query.message || req.body.message || "0";
-  output = benchmarking(message);
+  let printAllResults = req.query.everythingPrint || false;
+  output = benchmarking(message,printAllResults);
   res.status(200).send(output);
 };
 
-function benchmarking(message) {
+function benchmarking(message,printAllResults) {
   number = parseInt(message);
 
   suite
@@ -26,7 +27,9 @@ function benchmarking(message) {
     })
     .on("cycle", function (event) {
       console.log(String(event.target));
+      if(printAllResults){
       console.log("All events: ", event);
+      }
     })
     .on("complete", function () {
       console.log("Fastest is " + this.filter("fastest").map("name"));
@@ -35,5 +38,3 @@ function benchmarking(message) {
 
   return `Factorial Finished Successfully for ${number} !`;
 }
-
-// benchmarking(2);
