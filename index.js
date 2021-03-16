@@ -10,6 +10,7 @@ const Benchmark = require("benchmark");
 const suite = new Benchmark.Suite();
 
 Benchmark.options.minSamples = 40;
+Benchmark.options.maxSamples = 40;
 
 exports.helloWorld = (req, res) => {
   let message = req.query.message || req.body.message || "0";
