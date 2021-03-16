@@ -7,7 +7,6 @@
 
 const myFunction = require("./factorial");
 const Benchmark = require("benchmark");
-const suite = new Benchmark.Suite();
 
 Benchmark.options.minSamples = 40;
 Benchmark.options.maxSamples = 40;
@@ -22,6 +21,7 @@ exports.helloWorld = (req, res) => {
 function benchmarking(message,printAllResults) {
   number = parseInt(message);
 
+  let suite= new Benchmark.Suite();
   suite
     .add(`factorial ${number}`,  function () {
       myFunction.factorial(number);
@@ -36,6 +36,8 @@ function benchmarking(message,printAllResults) {
       console.log("Fastest is " + this.filter("fastest").map("name"));
     })
     .run({ async: false });
-
+    
   return `Factorial Finished Successfully for ${number} !`;
 }
+benchmarking(2);
+benchmarking(4);
